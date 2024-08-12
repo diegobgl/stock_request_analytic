@@ -1,0 +1,13 @@
+
+<odoo>
+    <record id="view_stock_request_line_form_inherit_analytic" model="ir.ui.view">
+        <field name="name">stock.request.line.form.inherit.analytic</field>
+        <field name="model">stock.request.line</field>
+        <field name="inherit_id" ref="stock_logistics_request.view_stock_request_line_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='product_id']" position="after">
+                <field name="analytic_account_ids"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
