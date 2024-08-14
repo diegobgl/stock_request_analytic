@@ -1,15 +1,23 @@
 <odoo>
-    <record id="view_stock_request_form" model="ir.ui.view">
-        <field name="name">stock.request.form</field>
-        <field name="model">stock.request</field>
+    <record id="view_stock_request_order_form_inherit" model="ir.ui.view">
+        <field name="name">stock.request.order.form.inherit</field>
+        <field name="model">stock.request.order</field>
+        <field name="inherit_id" ref="stock_request.stock_request_order_form"/>
         <field name="arch" type="xml">
-            <form>
-                <!-- Añadir el campo analytic_account_ids -->
-                <group>
-                    <field name="analytic_account_ids" widget="many2many_tags"/>
-                </group>
-                <!-- Resto del formulario -->
-            </form>
+            <group position="after">
+                <field name="analytic_account_ids"/>
+            </group>
+        </field>
+    </record>
+
+    <record id="view_stock_request_order_line_form_inherit" model="ir.ui.view">
+        <field name="name">stock.request.order.line.form.inherit</field>
+        <field name="model">stock.request.order.line</field>
+        <field name="inherit_id" ref="stock_request.stock_request_order_line_form"/>
+        <field name="arch" type="xml">
+            <group position="after">
+                <field name="analytic_account_ids"/>
+            </group>
         </field>
     </record>
 </odoo>
