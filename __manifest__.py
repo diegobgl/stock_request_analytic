@@ -8,7 +8,7 @@
     'author': 'Your Name',
     'depends': ['stock_request', 'account'],
     'data': [
-        'views/stock_request_line_views.xml',
+        'views/stock_request_views.xml',
     ],
     'installable': True,
     'application': False,
