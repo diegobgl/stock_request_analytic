@@ -5,7 +5,9 @@
         <field name="inherit_id" ref="stock_request.stock_request_order_form"/>
         <field name="arch" type="xml">
             <group position="after">
-                <field name="analytic_account_ids"/>
+                <field name="analytic_account_ids" 
+                widget="many2many_tags"
+                />
             </group>
         </field>
     </record>
