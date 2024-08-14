@@ -4,11 +4,11 @@
         <field name="model">stock.request.order</field>
         <field name="inherit_id" ref="stock_request.stock_request_order_form"/>
         <field name="arch" type="xml">
-            <group position="after">
-                <field name="analytic_account_ids" 
-                widget="many2many_tags"
-                />
-            </group>
+            <!-- Heredar el grupo específico -->
+            <xpath expr="//group/group[field[@name='picking_policy']]" position="after">
+                <!-- Agregar aquí los campos analíticos -->
+                <field name="analytic_account_ids"/>
+            </xpath>
         </field>
     </record>
 
