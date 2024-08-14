@@ -7,7 +7,9 @@
             <!-- Heredar el grupo específico -->
             <xpath expr="//group/group[field[@name='picking_policy']]" position="after">
                 <!-- Agregar aquí los campos analíticos -->
-                <field name="analytic_account_ids"/>
+                <field name="analytic_account_ids" 
+                widget="many2many_tags"
+                />
             </xpath>
         </field>
     </record>
