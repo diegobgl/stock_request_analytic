@@ -10,10 +10,9 @@ class StockRequestOrder(models.Model):
 
     @api.model
     def create(self, vals):
-        # Heredar las cuentas analíticas en las líneas de stock move y stock picking
-        res = super(StockRequestOrder, self).sudo().create(vals)
-        if res.analytic_account_ids:
-            res.sudo()._assign_analytic_accounts()
+        # Asegúrate de no generar un ciclo recursivo
+        res = super(StockRequestOrder, self).create(vals)
+        # Lógica adicional sin llamada recursiva
         return res
 
     def write(self, vals):
