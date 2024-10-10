@@ -22,7 +22,7 @@ class StockRequestOrder(models.Model):
         if 'analytic_account_ids' in vals:
             self.sudo()._assign_analytic_accounts()
         return res
-
+    
     def _assign_analytic_accounts(self):
         # Asignar cuentas analíticas a las líneas relacionadas
         for order in self.sudo():
