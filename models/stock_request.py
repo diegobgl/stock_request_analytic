@@ -23,10 +23,25 @@ class StockRequestOrder(models.Model):
         return res
     
     def _assign_analytic_accounts(self):
-        # Asignar cuentas analíticas a las líneas relacionadas
-        for order in self.sudo():
+    # Asignar cuentas analíticas a las líneas relacionadas
+        for order in self:
             if order.analytic_account_ids:
                 # Asignar a los movimientos de stock
-                order.move_ids.sudo().write({'analytic_account_ids': [(6, 0, order.analytic_account_ids.ids)]})
+                if order.move_ids:
+                    order.move_ids.sudo().write({
+                        'analytic_account_id': order.analytic_account_ids.id  # Reemplazar campo si es necesario
+                    })
                 # Asignar a los pickings
-                order.picking_ids.sudo().write({'analytic_account_ids': [(6, 0, order.analytic_account_ids.ids)]})
+                if order.picking_ids:
+                    order.picking_ids.sudo().write({
+                        'analytic_account_id': order.analytic_account_ids.id  # Reemplazar campo si es necesario
+                    })
+
+    # def _assign_analytic_accounts(self):
+    #     # Asignar cuentas analíticas a las líneas relacionadas
+    #     for order in self.sudo():
+    #         if order.analytic_account_ids:
+    #             # Asignar a los movimientos de stock
+    #             order.move_ids.sudo().write({'analytic_account_ids': [(6, 0, order.analytic_account_ids.ids)]})
+    #             # Asignar a los pickings
+    #             order.picking_ids.sudo().write({'analytic_account_ids': [(6, 0, order.analytic_account_ids.ids)]})
