@@ -1,6 +1,6 @@
 
 {
-    'name': 'stock_request_analytic',
+    'name': 'Request_analytic',
     'version': '1.0',
     'category': 'Inventory',
     'summary': 'Inherit analytic accounts in stock requests',
@@ -8,7 +8,7 @@
     'author': 'Diego Gajardo, Camilo Neira',
     'depends': ['stock_request', 'account'],
     'data': [
-        'views/stock_request_views.xml',
+        #'views/stock_request_views.xml',
     ],
     'installable': True,
     'application': False,
