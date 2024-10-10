@@ -17,10 +17,9 @@ class StockRequestOrder(models.Model):
         return res
 
     def write(self, vals):
-        # Al escribir en el registro, asegúrate de que las cuentas analíticas se actualicen en las líneas
-        res = super(StockRequestOrder, self).sudo().write(vals)
+        res = super(StockRequestOrder, self).write(vals)  
         if 'analytic_account_ids' in vals:
-            self.sudo()._assign_analytic_accounts()
+            self.sudo()._assign_analytic_accounts()  
         return res
     
     def _assign_analytic_accounts(self):
