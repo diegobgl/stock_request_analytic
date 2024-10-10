@@ -10,9 +10,7 @@ class StockRequestOrder(models.Model):
 
     @api.model
     def create(self, vals):
-        # Asegúrate de no generar un ciclo recursivo
         res = super(StockRequestOrder, self).create(vals)
-        # Lógica adicional sin llamada recursiva
         return res
 
     def write(self, vals):
