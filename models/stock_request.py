@@ -3,10 +3,10 @@ from odoo import models, fields, api
 class StockRequestOrder(models.Model):
     _inherit = 'stock.request.order'
 
-    # analytic_account_ids = fields.Many2many(
-    #     'account.analytic.account', 
-    #     string='Analytic Accounts'
-    # )
+    analytic_account_ids = fields.Many2many(
+         'account.analytic.account', 
+         string='Analytic Accounts'
+     )
 
     @api.model
     def create(self, vals):

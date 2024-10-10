@@ -8,7 +8,7 @@
     'author': 'Diego Gajardo, Camilo Neira',
     'depends': ['stock_request', 'account'],
     'data': [
-        #'views/stock_request_views.xml',
+        'views/stock_request_views.xml',
     ],
     'installable': True,
     'application': False,
