@@ -7,8 +7,6 @@ class StockRequestOrder(models.Model):
          'account.analytic.account', 
          string='Analytic Accounts'
      )
-    available_qty = fields.Float( string="Stock Disponible", compute="_compute_available_qty", store=False)
-
     @api.model
     def create(self, vals):
         res = super(StockRequestOrder, self).create(vals)
@@ -40,6 +38,13 @@ class StockRequestOrder(models.Model):
             else:
                 # Si no hay cuentas analíticas, limpiar el campo
                 order.stock_picking_id.analytic_account_ids = [(5, 0, 0)]
+
+
+
+class StockAvailableOrder(models.Model):
+     _inherit = 'stock.request'
+
+    available_qty = fields.Float( string="Stock Disponible", compute="_compute_available_qty", store=False)
 
     @api.depends('product_id', 'route_id')
     def _compute_available_qty(self):
