@@ -9,6 +9,8 @@
     'depends': ['stock_request', 'account'],
     'data': [
         'views/stock_request_views.xml',
+        'report/order_report.xml',
+        'report/report_stock_request_order_template.xml'
     ],
     'installable': True,
     'application': False,
