@@ -9,6 +9,7 @@
                 <!-- Agregar aquí los campos analíticos -->
                 <field name="analytic_account_ids" 
                 widget="many2many_tags"
+                domain="[('is_blocked', '=', False)]"
                 />
             </xpath>
         </field>
